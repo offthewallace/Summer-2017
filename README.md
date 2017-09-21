@@ -1,8 +1,10 @@
 # Summer-2017
 
-Summer Research for birds species classcification and birds location detection with Dr.Barnett
+Summer Research of machine learning method for birds species classification and birds location detection with Dr.Barnett
 
-I used convolutional neural network to indentify the birds species of given image dataset and detect . 
+The program is written by Python and Keras as deep learning tool. The backend is Tensorflow and trained in Amazon-EC2.
+
+I used convolutional neural network to identify the birds species of given image dataset and detect the positions of the birds by FRCNN implementation . The accuracy is over 97 percent for bird species classification and over 85 percent for predicting the location of bounding box for birds detection in the given images.
 
 train_CNN.py:
 
