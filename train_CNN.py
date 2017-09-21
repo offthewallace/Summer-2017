@@ -1,9 +1,12 @@
 #Author:Wallace He 
 
 import matplotlib
+#this comment is used for letting matplotlib showing picture in AWS non-gui enviroment
+#if you used the gui-virtual machine environment, delete that one.
 matplotlib.use('Agg')
 import numpy as np
 import cv2
+#school's mac is hard to install cv2, you may think abput using PIL
 import matplotlib.pyplot as plt
 import pickle
 import h5py
@@ -31,7 +34,7 @@ from keras.models import load_model
 """
 Basic variables for training CNN 
 """
-
+# the name of the classes used for input data
 #map_characters = { 0: 'DownyWoodpecker', 1: 'BlueJay', 2: 'empty', 3: 'NotherCardinal', 4: 'europeanStarling', 5: 'CarolinaWren', 6: 'GrayCatbird', 1:'BlurryBird' ,8: 'CarolinaChickadee', 9: 'RedBelliedWoodpecker', 10: 'TuftedTitmouse'}
 map_characters ={0:'CarolinaChickadee' , 1:'EmptyFeeder',2:'EuropeanStarling',3:'GrayCatbird',4:'NorthernCardinal',5:'RedBelliedWoodpecker',6:'TuftedTitmouse',7:'YellowRumpedWarbler'}
 
@@ -90,7 +93,7 @@ def get_dataset(save=True, load=False, BGR=False):
         X, y = load_pictures(BGR)
         y = keras.utils.to_categorical(y, num_classes)
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size)
-        #random check the 
+        #random splict the train/test set  
         if save:
             h5f = h5py.File('dataset.h5', 'w')
             h5f.create_dataset('X_train', data=X_train)
@@ -183,10 +186,12 @@ def create_six_conv_layer(input_shape):
 
 
 def lr_schedule(epoch):
+	#used for the learning rate decay. 
     lr = 0.01
     return lr*(0.1**int(epoch/10))
 
 def load_model_from_checkpoint(weights_path, six_conv=False, input_shape=(pic_size,pic_size,3)):
+	
     if six_conv:
         model, opt = create_model_six_conv(input_shape)
     else:
