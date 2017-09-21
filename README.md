@@ -8,4 +8,5 @@ This file is used for training the input images with size 140*140 into the diffe
 
 train_frcnn.py:
 This file will parse the annotation.txt as input and read all the positions and file names to import image and pre-bounding box location. Then using those images and location for the FRCNN training. The supporting paper and code is list in here:
-https://arxiv.org/abs/1506.01497 https://github.com/yhenon/keras-frcnn.
+https://arxiv.org/abs/1506.01497 
+https://github.com/yhenon/keras-frcnn.
