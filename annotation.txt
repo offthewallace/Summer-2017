@@ -1243,3 +1243,4 @@ Training images per class (2 classes) :
 Training images per class (2 classes) :
 {'Bird': 977, 'bg': 0}
 Training
+    
