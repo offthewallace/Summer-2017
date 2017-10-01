@@ -32,7 +32,6 @@ y = x**2
 fig = plt.figure(1)
 ax = plt.imshow(im)
 
-
 coords = []
 
 # Call click func
@@ -41,10 +40,6 @@ cid = fig.canvas.mpl_connect('button_press_event', onclick)
 plt.show(1)
 
 a = coords[0][0].astype(int)
-
-
-
-
 
 print ('Integral between '+ str(coords[0][0].astype(int)) +' & ' + str(coords[0][1].astype(int))+' & ' +str(coords[1][0].astype(int)) + ' & '+str(coords[1][1].astype(int)))
 
